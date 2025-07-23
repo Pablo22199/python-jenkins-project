@@ -2,19 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Clone Repo') {
             steps {
-                echo 'Cloning GitHub Repo...'
-                checkout scm
+                echo 'Cloning repository...'
+                // Jenkins auto-clones, this is just to mark the stage
             }
         }
 
-        stage('Run Calculator') {
+        stage('Install Dependencies') {
+            
+
+        stage('Run Python App') {
             steps {
-                echo 'Running interactive calculator...'
-                script {
-                    sh 'python3 calculator.py < input.txt'
-                }
+                sh 'calculator.py'  // 
             }
         }
     }
