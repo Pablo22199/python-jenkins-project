@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Cloning GitHub Repo...'
+                checkout scm
+            }
+        }
+
+        stage('Run Calculator') {
+            steps {
+                echo 'Running interactive calculator...'
+                script {
+                    sh 'python3 calculator.py < input.txt'
+                }
+            }
+        }
+    }
+}
